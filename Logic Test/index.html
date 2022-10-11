@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Tgs Logic</p>
+
+    <!-- <label>Reserve Word : </label>
+    <script>
+       const reverseWords = (str) => {
+        const word = str.split(" ").map(text=>text.split("").reverse().join(''));
+        // console.log(word);
+        return word.join(" ");
+    }
+    document.writeln(reverseWords('I am A Great human'))
+    </script>
+    <br>
+    <br>
+    <label>Find Middle Alphabet : </label>
+    <script>
+        
+    function letterMiddleValue(a, b) {
+    const aPos = Alphabet.indexOf(a);
+    const bPos = Alphabet.indexOf(b);
+    const len = bPos - aPos
+
+    if (len < 2) {
+        return '[none]'
+    }
+
+    const start = aPos + (len / 2)
+    const end = start + 1 + (len % 2)
+    return Alphabet.slice(Math.floor(start), end)
+}
+
+const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.writeln(letterMiddleValue("Q", "U"));   // S
+document.writeln(letterMiddleValue("R", "U"));   // ST
+document.writeln(letterMiddleValue("T", "Z"));   // W
+document.writeln(letterMiddleValue("A", "B"));   // none
+document.writeln(letterMiddleValue("A", "C"));   // B
+document.writeln(letterMiddleValue("A", "D"));   // BC
+document.writeln(letterMiddleValue("A", "A"));   // none
+document.writeln(letterMiddleValue("Z", "A"));   // none
+document.writeln(letterMiddleValue("z", "A"));   // none
+document.writeln(letterMiddleValue("Z", "a"));   // none
+    </script>
+    <br>
+    <br>
+    <br>
+    <label>Multiple 3 dan 5 : </label>
+
+    <script>
+        function sumOfMultiples(number) {    
+  let sum = 0;    for(let i=1; i<number; i++) {        
+    if(i % 3 === 0 || i % 5 === 0){            
+      sum += i;        
+    }    
+  }    
+  return sum;
+}
+
+document.writeln(sumOfMultiples(10)) ; // returns 23 as 3 + 5 + 6 + 9 = 23
+document.writeln(sumOfMultiples(20)) ; // returns 45 as 3 + 5 + 6 + 9 + 10 + 12 = 45
+    </script>
+    <br>
+    <br>
+    <label>alternateCase : </label>
+    <script>
+        function alternateCase(params) {
+            return params.split('').map(change).join(''); 
+        }
+
+        function change(letter) {
+            return  letter.toLowerCase() === letter ? letter.toUpperCase() : letter.toLowerCase();
+        }
+        document.writeln(alternateCase('abc'));
+        document.writeln(alternateCase('ABC'));
+        document.writeln(alternateCase('Hello World'));
+        </script> -->
+        <br>
+        <br>
+        <label>Map Array Data : </label>
+        <script>
+            function productArray(arr, n){
+        if (n == 1) {
+            document.write(0);
+            return;
+        }
+         
+        let left = new Array(n);
+        let right = new Array(n);
+        let prod = new Array(n);
+  
+        let i, j;
+  
+        left[0] = 1;
+  
+        right[n - 1] = 1;
+        for (i = 1; i < n; i++)
+        left[i] = arr[i - 1] * left[i - 1];
+        
+        for (j = n - 2; j >= 0; j--)
+        right[j] = arr[j + 1] * right[j + 1];
+        
+        
+        
+        for (i = 0; i < n; i++)
+        prod[i] = left[i] * right[i];
+  
+        for (i = 0; i < n; i++)
+            document.write(prod[i] + " ");
+  
+        return;
+    }
+     
+    let arr = [ 12, 20 ];
+    let n = arr.length;
+    productArray(arr, n);         
+        </script>
+</body>
+</html>
