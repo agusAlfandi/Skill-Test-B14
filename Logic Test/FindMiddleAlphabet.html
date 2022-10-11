@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Find Middle Alphabet : </label>
+    <script>
+      function letterMiddleValue(a, b) {
+        const aPos = Alphabet.indexOf(a);
+        const bPos = Alphabet.indexOf(b);
+        const len = bPos - aPos;
+
+        if (len < 2) {
+          return "[none]";
+        }
+
+        const start = aPos + len / 2;
+        const end = start + 1 + (len % 2);
+        return Alphabet.slice(Math.floor(start), end);
+      }
+
+      const Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      document.writeln(letterMiddleValue("Q", "U")); // S
+      document.writeln(letterMiddleValue("R", "U")); // ST
+      document.writeln(letterMiddleValue("T", "Z")); // W
+      document.writeln(letterMiddleValue("A", "B")); // none
+      document.writeln(letterMiddleValue("A", "C")); // B
+      document.writeln(letterMiddleValue("A", "D")); // BC
+      document.writeln(letterMiddleValue("A", "A")); // none
+      document.writeln(letterMiddleValue("Z", "A")); // none
+      document.writeln(letterMiddleValue("z", "A")); // none
+      document.writeln(letterMiddleValue("Z", "a")); // none
+    </script>
+  </body>
+</html>
