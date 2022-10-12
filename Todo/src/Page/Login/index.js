@@ -1,12 +1,7 @@
 import auth from '@react-native-firebase/auth';
+import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
+import React, { useState } from 'react';
 import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
-import React, { useEffect, useState } from 'react';
-import {
-  Alert,
   Dimensions,
   ScrollView,
   StyleSheet,
@@ -18,7 +13,7 @@ import {
 import { showMessage } from 'react-native-flash-message';
 import { Loading } from '../../Component';
 import { Fire } from '../../config';
-import { colors, getData, storeData, useForm } from '../../Utils';
+import { colors, storeData, useForm } from '../../Utils';
 
 const { height, width } = Dimensions.get('window');
 
