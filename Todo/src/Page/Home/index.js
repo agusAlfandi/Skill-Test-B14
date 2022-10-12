@@ -33,7 +33,7 @@ const Home = ({ onPress }) => {
   useEffect(() => {
     getData('todos').then((res) => {
       setTodo(res);
-      console.log('data local 1 :', res);
+      // console.log('data local 1 :', res);
     });
   }, []);
 
@@ -50,7 +50,7 @@ const Home = ({ onPress }) => {
   };
 
   const onChange = (event, selectedDate) => {
-    console.log('event :', event);
+    // console.log('event :', event);
     const currentDate = selectedDate;
 
     if (event.type === 'dismissed') return;
@@ -79,13 +79,6 @@ const Home = ({ onPress }) => {
             text,
             date: moment(currentDate).format('dddd, MMM DD YYYY, h:mm a'),
           };
-          // const data = {
-          //   ...item,
-          //   id: uuid.v4(),
-          //   text,
-          //   date: currentDate,
-          // };
-          // return data;
         } else {
           return item;
         }
@@ -113,7 +106,7 @@ const Home = ({ onPress }) => {
   };
 
   const deleteTodo = (id) => {
-    console.log(id);
+    // console.log(id);
     Alert.alert('Warning', 'Are you sure want delete this ?', [
       { text: 'No' },
       { text: 'Yes', onPress: () => setTodo(todos.filter((items) => items.id !== id)) },

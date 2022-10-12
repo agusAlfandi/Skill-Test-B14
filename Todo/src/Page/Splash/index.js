@@ -2,14 +2,13 @@ import { View, Text, StyleSheet } from 'react-native';
 import React, { useEffect } from 'react';
 import { Fire } from '../../config';
 import { getData } from '../../Utils';
-// import auth from '@react-native-firebase/auth';
 
 const Splash = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
       getData('user').then((res) => {
         if (res) {
-          console.log('account google: ', res);
+          // console.log('account google: ', res);
           navigation.replace('Home');
         } else {
           getData('email').then((res) => {
@@ -21,7 +20,6 @@ const Splash = ({ navigation }) => {
             }
           });
         }
-        // navigation.replace('Login');
       });
     }, 2000);
   }, []);

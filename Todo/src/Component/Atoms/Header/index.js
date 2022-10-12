@@ -35,7 +35,7 @@ const Header = () => {
             name: res.displayName,
             photo: { uri: res.photoURL },
           };
-          console.log('local storage :', data);
+          // console.log('local storage :', data);
           setUser(data);
           setOn(false);
         })
