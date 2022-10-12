@@ -62,32 +62,39 @@ const Home = ({ onPress }) => {
     } else if (type === 'newData') {
       alert('New Data');
 
-      setTodo((value) => [
-        ...value,
-        { id: uuid.v4(), date: moment(currentDate).format('dddd, MMM DD YYYY, h:mm a'), text },
-      ]);
+      newData(currentDate);
       setText('');
-      setTodo(value);
     } else if (type === 'Update') {
       alert('Update');
 
-      const newTodo = todos.map((item) => {
-        if (item.id == selected) {
-          return {
-            ...item,
-            id: uuid.v4(),
-            text,
-            date: moment(currentDate).format('dddd, MMM DD YYYY, h:mm a'),
-          };
-        } else {
-          return item;
-        }
-      });
-      setTodo(newTodo);
+      updateData(currentDate);
       setText('');
       setType('newData');
       setButton('Add');
     }
+  };
+
+  const newData = (currentDate) => {
+    setTodo((value) => [
+      ...value,
+      { id: uuid.v4(), date: moment(currentDate).format('dddd, MMM DD YYYY, h:mm a'), text },
+    ]);
+  };
+
+  const updateData = (currentDate) => {
+    const newTodo = todos.map((item) => {
+      if (item.id == selected) {
+        return {
+          ...item,
+          id: uuid.v4(),
+          text,
+          date: moment(currentDate).format('dddd, MMM DD YYYY, h:mm a'),
+        };
+      } else {
+        return item;
+      }
+    });
+    setTodo(newTodo);
   };
 
   const showMode = (currentMode) => {
