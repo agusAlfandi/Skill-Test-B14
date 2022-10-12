@@ -47,7 +47,7 @@ const Login = ({ navigation }) => {
         .then((res) => {
           navigation.replace('Home');
           storeData('user', res.user);
-          console.log('user: ', res.user);
+          // console.log('user: ', res.user);
           // console.log('user add: ', res.additionalUserInfo);
         });
     } catch (error) {

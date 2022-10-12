@@ -1,6 +1,4 @@
 import firebase from 'firebase/compat/app';
-import initializeApp from 'firebase/app';
-import { getAuth } from 'firebase/auth';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyDSue-dS1eTX_637hK3fzb-CClcD0q5jdk',
