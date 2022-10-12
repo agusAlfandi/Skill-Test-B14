@@ -33,6 +33,7 @@ const Login = ({ navigation }) => {
   });
   const [loading, setLoading] = useState(false);
 
+  // Login with auth google
   const onGoogleButtonPress = async () => {
     try {
       const userInfo = await GoogleSignin.signIn();
@@ -47,22 +48,19 @@ const Login = ({ navigation }) => {
         .then((res) => {
           navigation.replace('Home');
           storeData('user', res.user);
-          // console.log('user: ', res.user);
-          // console.log('user add: ', res.additionalUserInfo);
         });
     } catch (error) {
       console.log('Cannot login: ', error);
     }
   };
 
+  // Login auth with Email and Password
   const Send = () => {
     setLoading(true);
     Fire.auth()
       .signInWithEmailAndPassword(form.email, form.pass)
       .then((userCredential) => {
         setLoading(false);
-        const user = userCredential.user.email;
-        console.log('berhasil login: ', user);
         const data = {
           login: userCredential.user.email,
         };
