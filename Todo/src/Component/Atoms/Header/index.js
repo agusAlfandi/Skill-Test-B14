@@ -63,7 +63,7 @@ const Header = () => {
         .then(() => {
           AsyncStorage.removeItem('email')
             .then(() => {
-              console.log('berhasil logout');
+              // console.log('berhasil logout');
               navigation.replace('Login');
             })
             .catch((error) => {
@@ -79,7 +79,7 @@ const Header = () => {
         .then(() => {
           AsyncStorage.removeItem('user').then(() => {
             navigation.replace('Login');
-            console.log('sukses logout');
+            // console.log('sukses logout');
           });
         })
         .catch((error) => {
