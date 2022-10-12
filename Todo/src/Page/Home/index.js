@@ -17,8 +17,6 @@ import {
 import uuid from 'react-native-uuid';
 import { Header } from '../../Component';
 import { getData, storeData } from '../../Utils';
-import uuid from 'react-native-uuid';
-import moment from 'moment';
 
 const Home = ({ onPress }) => {
   const [text, setText] = useState('');
