@@ -149,7 +149,7 @@ const Home = ({ onPress }) => {
           // display: 'default',
           mode={mode}
           is24Hour={true}
-          dateFormat="dayofweek day month"
+          // dateFormat="dayofweek day month"
         />
       )}
 
