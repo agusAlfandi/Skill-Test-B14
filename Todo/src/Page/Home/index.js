@@ -28,16 +28,10 @@ const Home = ({ onPress }) => {
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState({});
   const refInput = useRef();
-
-  // const login = route.params;
-  // console.log('params: ', login);
+  const [button, setButton] = useState('Add');
 
   useEffect(() => {
     getData('todos').then((res) => {
-      // const data = res.map((item) => {
-      //   console.log(date.toLocaleString());
-      //   return { ...item };
-      // });
       setTodo(res);
       console.log('data local 1 :', res);
     });
@@ -75,7 +69,7 @@ const Home = ({ onPress }) => {
       setText('');
       setTodo(value);
     } else if (type === 'Update') {
-      alert('update');
+      alert('Update');
 
       const newTodo = todos.map((item) => {
         if (item.id == selected) {
@@ -98,8 +92,8 @@ const Home = ({ onPress }) => {
       });
       setTodo(newTodo);
       setText('');
-      // console.log('data update', newTodo);
       setType('newData');
+      setButton('Add');
     }
   };
 
@@ -120,7 +114,7 @@ const Home = ({ onPress }) => {
 
   const deleteTodo = (id) => {
     console.log(id);
-    Alert.alert('Warning', 'Are you seru want delete this ?', [
+    Alert.alert('Warning', 'Are you sure want delete this ?', [
       { text: 'No' },
       { text: 'Yes', onPress: () => setTodo(todos.filter((items) => items.id !== id)) },
     ]);
@@ -130,6 +124,7 @@ const Home = ({ onPress }) => {
     setText(data.text);
     setSelected(data.id);
     setType('Update');
+    setButton('Update');
   };
 
   return (
@@ -175,25 +170,11 @@ const Home = ({ onPress }) => {
                 <Text style={{ color: 'black' }}>{items.text}</Text>
               </ScrollView>
               <View style={styles.icon}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: 'green',
-                    alignItems: 'center',
-                    paddingVertical: 5,
-                    borderRadius: 8,
-                  }}
-                  onPress={() => updateTodo(items)}
-                >
+                <TouchableOpacity style={styles.firstIconEdit} onPress={() => updateTodo(items)}>
                   <FontAwesomeIcon icon={faEdit} size={23} style={styles.iconDelete} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={{
-                    backgroundColor: 'red',
-                    alignItems: 'center',
-                    paddingVertical: 5,
-                    borderRadius: 8,
-                    paddingHorizontal: 8,
-                  }}
+                  style={styles.firstIconDelete}
                   onPress={() => deleteTodo(items.id)}
                 >
                   <FontAwesomeIcon icon={faDeleteLeft} size={23} style={styles.iconDelete} />
@@ -213,7 +194,7 @@ const Home = ({ onPress }) => {
           />
         </View>
         <TouchableOpacity style={styles.tambah} onPress={addTodo} type="newData">
-          <Text style={{ color: 'black' }}>Tambah</Text>
+          <Text style={{ color: 'black' }}>{button}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -243,6 +224,19 @@ const styles = StyleSheet.create({
   },
   task: { width: '85%', paddingLeft: 10, overflow: 'scroll', color: 'black' },
   icon: { justifyContent: 'space-between' },
+  firstIconEdit: {
+    backgroundColor: 'green',
+    alignItems: 'center',
+    paddingVertical: 5,
+    borderRadius: 8,
+  },
+  firstIconDelete: {
+    backgroundColor: 'red',
+    alignItems: 'center',
+    paddingVertical: 5,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
   iconDelete: { color: 'white' },
   outputList: { flexDirection: 'row' },
   input: { flexDirection: 'row', padding: 5 },
