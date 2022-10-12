@@ -50,7 +50,7 @@ const Home = ({ onPress }) => {
   };
 
   const onChange = (event, selectedDate) => {
-    // console.log('event :', event);
+    console.log('event :', event);
     const currentDate = selectedDate;
 
     if (event.type === 'dismissed') return;
