@@ -164,15 +164,15 @@ const Home = ({ onPress }) => {
                 <Text style={{ color: 'black' }}>{items.date.toLocaleString()}</Text>
                 <Text style={{ color: 'black' }}>{items.text}</Text>
               </ScrollView>
-              <View style={styles.icon}>
+              <View style={styles.wrapper}>
                 <TouchableOpacity style={styles.firstIconEdit} onPress={() => updateTodo(items)}>
-                  <FontAwesomeIcon icon={faEdit} size={23} style={styles.iconDelete} />
+                  <FontAwesomeIcon icon={faEdit} size={23} style={styles.icon} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.firstIconDelete}
                   onPress={() => deleteTodo(items.id)}
                 >
-                  <FontAwesomeIcon icon={faDeleteLeft} size={23} style={styles.iconDelete} />
+                  <FontAwesomeIcon icon={faDeleteLeft} size={23} style={styles.icon} />
                 </TouchableOpacity>
               </View>
             </View>
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   task: { width: '85%', paddingLeft: 10, overflow: 'scroll', color: 'black' },
-  icon: { justifyContent: 'space-between' },
+  wrapper: { justifyContent: 'space-between' },
   firstIconEdit: {
     backgroundColor: 'green',
     alignItems: 'center',
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 8,
   },
-  iconDelete: { color: 'white' },
+  icon: { color: 'white' },
   outputList: { flexDirection: 'row' },
   input: { flexDirection: 'row', padding: 5 },
   inputText: { flex: 1, borderWidth: 1, color: '#e0e0e0', borderRadius: 5 },
