@@ -33,7 +33,6 @@ const Home = ({ onPress }) => {
   useEffect(() => {
     getData('todos').then((res) => {
       setTodo(res);
-      // console.log('data local 1 :', res);
     });
   }, []);
 
@@ -50,7 +49,6 @@ const Home = ({ onPress }) => {
   };
 
   const onChange = (event, selectedDate) => {
-    // console.log('event :', event);
     const currentDate = selectedDate;
 
     if (event.type === 'dismissed') return;
@@ -113,7 +111,6 @@ const Home = ({ onPress }) => {
   };
 
   const deleteTodo = (id) => {
-    // console.log(id);
     Alert.alert('Warning', 'Are you sure want delete this ?', [
       { text: 'No' },
       { text: 'Yes', onPress: () => setTodo(todos.filter((items) => items.id !== id)) },
@@ -146,10 +143,8 @@ const Home = ({ onPress }) => {
           testID="dateTimePicker"
           value={date}
           onChange={onChange}
-          // display: 'default',
           mode={mode}
           is24Hour={true}
-          // dateFormat="dayofweek day month"
         />
       )}
 
